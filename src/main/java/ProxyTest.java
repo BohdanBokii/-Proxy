@@ -15,9 +15,10 @@ public class ProxyTest extends BaseClass {
     }
 
     @Test
-    public void test1() {
+    public void test1() throws InterruptedException {
         youtube.goHome();
         youtube.search();
+        Thread.sleep(3000);
         Util.ScreenShot.takeScreenShot(driver, "Screen1");
     }
 }
