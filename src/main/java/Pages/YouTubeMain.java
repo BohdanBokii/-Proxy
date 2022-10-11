@@ -14,15 +14,20 @@ public class YouTubeMain {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//input[@id = \"search\" ]")
+    @FindBy(xpath = "//button[contains(@class, 'icon-button') and contains(@class," +
+            " 'topbar-menu-button-avatar-button') and contains(@aria-label, 'Поиск на YouTube')]")
+    private WebElement search;
+
+    @FindBy(xpath = "//input[contains(@class, 'searchbox-input') and contains(@class, 'title') and contains(@name, 'search')]")
     private WebElement searchField;
 
-    @FindBy(xpath = "//button[@id = \"search-icon-legacy\" ]")
-    private WebElement searchButton;
+    @FindBy(xpath = "//button[contains(@class, 'icon-button')  and contains(@aria-label, 'Поиск на YouTube')]")
+    private WebElement searchAfterSendKeys;
 
     public void search() {
+        search.click();
         searchField.sendKeys("no war");
-        searchButton.click();
+        searchAfterSendKeys.click();
     }
 
     public void goHome() {

@@ -1,6 +1,5 @@
 package DriverConfig;
 
-import Models.AGENTS;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -15,8 +14,8 @@ public class BaseClass {
     }
 
     @BeforeClass
-    public static void init() {
-        server = new BrowserMobProxyServer();
+    public static void initChromeProxy() {
+        /*server = new BrowserMobProxyServer();*/
         driver = DriverFactory.getDriver(BROWSER.CHROMEPROXY);
     }
 

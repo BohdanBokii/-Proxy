@@ -1,25 +1,24 @@
 package Models;
 
-import net.lightbody.bmp.BrowserMobProxyServer;
-import net.lightbody.bmp.filters.RequestFilter;
+import DriverConfig.BaseClass;
 
 public class AGENTS {
-    public static void AgentType(UserAgents agents, BrowserMobProxyServer server){
+    public static void AgentType(UserAgents agents){
         switch (agents){
             case IPHONE:
-                setUserIphone(server);
+                setUserIphone();
                 break;
             case NEXUS:
-                initNexus(server);
+                initNexus();
                 break;
         }
     }
 
-    private static void initNexus(BrowserMobProxyServer server) {
+    private static void initNexus() {
     }
 
-    public static RequestFilter setUserIphone(BrowserMobProxyServer server){
-        server.addRequestFilter((request, contents, messageInfo) -> {
+    public static void setUserIphone(){
+        BaseClass.server.addRequestFilter((request, contents, messageInfo) -> {
             request.headers().remove("user-agent");
             request.headers().remove("Accept-Language");
             request.headers().remove("Content-Language");
@@ -33,6 +32,5 @@ public class AGENTS {
 
             return null;
         });
-        return null;
     }
 }

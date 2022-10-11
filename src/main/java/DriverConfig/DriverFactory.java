@@ -1,6 +1,5 @@
 package DriverConfig;
-import Models.AGENTS;
-import Models.UserAgents;
+
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.client.ClientUtil;
 import org.openqa.selenium.Proxy;
@@ -38,8 +37,6 @@ public class DriverFactory {
         server.start();
 
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
-        AGENTS.setUserIphone(server);
-
 
         String hostIp = null;
         try {
@@ -57,9 +54,6 @@ public class DriverFactory {
 
         ChromeOptions options = new ChromeOptions();
         options.merge(capabilities);
-
-        String proxyOption = "--proxy-server=" + seleniumProxy.getHttpProxy();
-        options.addArguments(proxyOption);
 
         WebDriver driver = new ChromeDriver(options);
         BaseClass.server = server;

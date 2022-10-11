@@ -2,7 +2,6 @@ import DriverConfig.BaseClass;
 import Models.AGENTS;
 import Models.UserAgents;
 import Pages.YouTubeMain;
-import net.lightbody.bmp.BrowserMobProxyServer;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,7 +10,8 @@ public class ProxyTest extends BaseClass {
 
     @BeforeClass
     public static void initBeforeTestMobile() {
-        youtube = new YouTubeMain(getDriver());
+        AGENTS.AgentType((UserAgents.IPHONE));
+        youtube = new YouTubeMain(driver);
     }
 
     @Test
